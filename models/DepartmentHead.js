@@ -1,0 +1,38 @@
+const { DataTypes } = require('sequelize');
+const sequelize = require('../config/db'); 
+const {Department} = require('./Departments')
+
+
+const DepartmentHead = sequelize.define('DepartmentHead', {
+  departmentHead_id: {
+    type: DataTypes.BIGINT,
+    autoIncrement: true,
+    primaryKey: true,
+  },
+  name: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  employeeNumber: {
+    type: DataTypes.STRING,
+  },
+  age: {
+    type: DataTypes.INTEGER,
+  },
+  profileImage: {
+    type: DataTypes.STRING,
+  },
+  profileDescription: {
+    type: DataTypes.TEXT,
+  },
+
+});
+DepartmentHead.belongsTo(Department, { foreignKey: 'department_id' ,as:'deapartment'});
+
+// DepartmentHead.sync({force:true}).then((data)=>{
+//     console.log('DepartmentHead Synced',data);
+//     }).catch((err)=>{
+//         console.log('DepartmentHead sync failed:',err);
+//     })
+
+module.exports = {DepartmentHead}
