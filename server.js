@@ -2,6 +2,7 @@ const express = require('express')
 const dotenv = require('dotenv').config({ path:'./config/.env'});
 const app = express();
 const path = require('path') 
+app.use(express.json())
 
 const department = require('./routes/Department')
 app.use('/api/v1/department',department)

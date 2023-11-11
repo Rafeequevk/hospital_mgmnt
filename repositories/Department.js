@@ -43,7 +43,7 @@ const getAllDept = () => {
   };
 
   const updateDept = (
-   name,yearFounded,desc
+   name,yearFounded,desc,id
   ) => {
     const newValues = {
         name: name,

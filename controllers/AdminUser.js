@@ -7,9 +7,9 @@ const asynchHandler = require("../middlewares/asynchHandler");
 //Route POST /api/v1/adminuser/create
 //Access private
 const createAdminUser = asynchHandler(async (req, res) => {
-    const { username,password } =
-      req.body;
-    const created = await AdminUsrRepo.createDept(
+    const { username,password } = req.body;
+
+    const created = await AdminUsrRepo.createAdminUser(
         username,password 
     );
     if (created) {
@@ -30,10 +30,10 @@ const createAdminUser = asynchHandler(async (req, res) => {
         username,password 
     } = req.body;
     const id = req.params.id;
-    const userExist = await AdminUsrRepo.updateDept(
+    console.log(id);
+    const userExist = await AdminUsrRepo.updateAdminUser(
      
-        username,password ,
-      id
+        username,password,id
     );
     if (userExist) {
       res.status(201).json({

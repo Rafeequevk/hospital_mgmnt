@@ -46,7 +46,7 @@ const getAllDeptHead  = () => {
   };
 
   const updateDeptHead = (
-    name, empNo,age,profileImage,profileDescription
+    name, empNo,age,profileImage,profileDescription,id
   ) => {
     const newValues = {
         name: name,

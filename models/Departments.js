@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/db'); 
-const {Employee} =require('../models/Employee')
-const {DepartmentHead} = require('./DepartmentHead')
+const {employee} =require('../models/Employee')
+const { departmentHead } = require('./DepartmentHead')
 
 
 const Department = sequelize.define('Department', {
@@ -21,9 +21,6 @@ const Department = sequelize.define('Department', {
       type: DataTypes.TEXT,
     },
   });
-
-  Department.hasMany(Employee, { foreignKey: 'department_id' });
-  Department.hasOne(DepartmentHead, { foreignKey: 'department_id' });
 
 
   // Department.sync({force:true}).then((data)=>{

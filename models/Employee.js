@@ -1,10 +1,10 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/db'); 
-const {Department} = require('./Departments')
-const {DepartmentHead} = require('./DepartmentHead')
+const {department} = require('./Departments')
+const {departmenthead} = require('./DepartmentHead')
 
 
-const Employee = sequelize.define('Employee', {
+const employee = sequelize.define('Employee', {
   employee_id: {
     type: DataTypes.BIGINT,
     autoIncrement: true,
@@ -28,8 +28,6 @@ const Employee = sequelize.define('Employee', {
   }
 });
 
-Employee.belongsTo(Department, { foreignKey: 'department_id' , as: 'department'})
-Employee.belongsTo(DepartmentHead, { foreignKey: 'departmentHead_id', as:'reportTo'})
 
 // Employee.sync({alter:true}).then((data)=>{
 //     console.log('Employee Details Synced',data);
@@ -37,4 +35,4 @@ Employee.belongsTo(DepartmentHead, { foreignKey: 'departmentHead_id', as:'report
 //         console.log('Employee Details sync failed:',err);
 //     })
 
-module.exports = {Employee};
+module.exports = {employee};

@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/db'); 
-const {Department} = require('./Departments')
-
+const {department} = require('./Departments')
+const {employee} =require('../models/Employee')
 
 const DepartmentHead = sequelize.define('DepartmentHead', {
   departmentHead_id: {
@@ -27,7 +27,7 @@ const DepartmentHead = sequelize.define('DepartmentHead', {
   },
 
 });
-DepartmentHead.belongsTo(Department, { foreignKey: 'department_id' ,as:'deapartment'});
+
 
 // DepartmentHead.sync({force:true}).then((data)=>{
 //     console.log('DepartmentHead Synced',data);

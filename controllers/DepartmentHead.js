@@ -57,7 +57,7 @@ const updateDeptHead = asynchHandler(async (req, res) => {
   const id = req.params.id;
   const edeptheadExist = await DeptHeadRepo.updateDeptHead(
    
-    name, empNo,age,profileImage,profileDescription
+    name, empNo,age,profileImage,profileDescription,id
 
   );
   if (edeptheadExist) {

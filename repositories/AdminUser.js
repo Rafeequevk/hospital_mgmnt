@@ -47,7 +47,7 @@ const getAllAdminUser  = () => {
   };
 
   const updateAdminUser = (
-    username,password  ) => {
+    username,password ,id ) => {
     const newValues = {
         username: username,
         password: password,
@@ -56,8 +56,8 @@ const getAllAdminUser  = () => {
     return new Promise((resolve, reject) => {
       AdminUser
         .findByPk(id)
-        .then((AdminUser) => {
-            AdminUser.update(newValues);
+        .then((adminUser) => {
+            adminUser.update(newValues);
           resolve(true);
         })
         .catch((err) => {
